@@ -1,0 +1,71 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace = "aideweb"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.maikots.aideweb"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+
+        resourceConfigurations += ["pt-rBR"]
+        multiDexEnabled = false
+    }
+
+    buildTypes {
+        debug {
+            crunchPngs = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                'kotlin/**',
+                '**/*.kotlin_builtins',
+                '**/*.bin',
+                'DebugProbesKt.bin',
+                'META-INF/kotlinx-coroutines-core.version',
+                'META-INF/kotlinx-coroutines-android.version',
+                'META-INF/*.kotlin_module',
+                'META-INF/*.version',
+                'META-INF/LICENSE*',
+                'META-INF/license*',
+                'META-INF/NOTICE*',
+                'META-INF/notice*',
+                'META-INF/DEPENDENCIES*',
+                'META-INF/dependencies*',
+                'META-INF/AL2.0',
+                'META-INF/LGPL2.1',
+                'META-INF/com.android.tools/**',
+                'META-INF/androidx.**',
+                'META-INF/google/**',
+                'META-INF/*.SF',
+                'META-INF/*.DSA',
+                'META-INF/*.RSA'
+            ]
+        }
+    }
+}
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation libs.material
+}
