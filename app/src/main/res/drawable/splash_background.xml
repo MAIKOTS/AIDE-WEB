@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Cor de fundo instantânea -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#121212" />
+        </shape>
+    </item>
+
+    <!-- Logo centralizada (funciona com PNG, XML e Adaptive Icon) -->
+    <item
+        android:drawable="@mipmap/ic_launcher"
+        android:gravity="center" />
+</layer-list>
